@@ -1,0 +1,9 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: flight-service
+
+jwt:
+  secret: ${AUTH_JWT_SECRET:a-string-secret-at-least-256-bits-long}
