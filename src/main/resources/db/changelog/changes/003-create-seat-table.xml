@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd">
+
+    <changeSet id="003" author="dev">
+        <createTable tableName="seat" schemaName="flight">
+            <column name="id" type="UUID">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="number" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="cost" type="DECIMAL(19,2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="seat_type" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="plane_id" type="UUID">
+                <constraints nullable="false"
+                             foreignKeyName="fk_seat_plane"
+                             references="flight.plane(id)"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>

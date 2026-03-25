@@ -4,6 +4,17 @@ server:
 spring:
   application:
     name: flight-service
+  datasource:
+    url: jdbc:postgresql://localhost:5432/microservices_db
+    username: authuser
+    password: authpass
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+  liquibase:
+    change-log: classpath:db/changelog/db.changelog-master.xml
 
 jwt:
   secret: ${AUTH_JWT_SECRET:a-string-secret-at-least-256-bits-long}
