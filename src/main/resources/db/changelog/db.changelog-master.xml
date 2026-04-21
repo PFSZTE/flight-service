@@ -9,5 +9,5 @@
     <include file="db/changelog/changes/002-create-plane-table.xml"/>
     <include file="db/changelog/changes/003-create-seat-table.xml"/>
     <include file="db/changelog/changes/004-create-flight-table.xml"/>
-
+    <include file="db/changelog/changes/005-seed-flight-data.xml"/>
 </databaseChangeLog>

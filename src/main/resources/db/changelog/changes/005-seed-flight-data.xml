@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd">
+
+    <changeSet id="005-planes" author="dev">
+        <insert tableName="plane" schemaName="flight">
+            <column name="id" value="a1000000-0000-0000-0000-000000000001"/>
+            <column name="name" value="Boeing 737"/>
+            <column name="type" value="Narrow-body"/>
+            <column name="capacity" valueNumeric="180"/>
+        </insert>
+        <insert tableName="plane" schemaName="flight">
+            <column name="id" value="a1000000-0000-0000-0000-000000000002"/>
+            <column name="name" value="Airbus A320"/>
+            <column name="type" value="Narrow-body"/>
+            <column name="capacity" valueNumeric="150"/>
+        </insert>
+        <insert tableName="plane" schemaName="flight">
+            <column name="id" value="a1000000-0000-0000-0000-000000000003"/>
+            <column name="name" value="Boeing 787"/>
+            <column name="type" value="Wide-body"/>
+            <column name="capacity" valueNumeric="300"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="005-seats" author="dev">
+        <insert tableName="seat" schemaName="flight">
+            <column name="id" value="b1000000-0000-0000-0000-000000000001"/>
+            <column name="number" value="1A"/>
+            <column name="cost" valueNumeric="50.00"/>
+            <column name="seat_type" value="WINDOW"/>
+            <column name="plane_id" value="a1000000-0000-0000-0000-000000000001"/>
+        </insert>
+        <insert tableName="seat" schemaName="flight">
+            <column name="id" value="b1000000-0000-0000-0000-000000000002"/>
+            <column name="number" value="1B"/>
+            <column name="cost" valueNumeric="30.00"/>
+            <column name="seat_type" value="MID"/>
+            <column name="plane_id" value="a1000000-0000-0000-0000-000000000001"/>
+        </insert>
+        <insert tableName="seat" schemaName="flight">
+            <column name="id" value="b1000000-0000-0000-0000-000000000003"/>
+            <column name="number" value="1C"/>
+            <column name="cost" valueNumeric="40.00"/>
+            <column name="seat_type" value="AISLE"/>
+            <column name="plane_id" value="a1000000-0000-0000-0000-000000000001"/>
+        </insert>
+        <insert tableName="seat" schemaName="flight">
+            <column name="id" value="b1000000-0000-0000-0000-000000000004"/>
+            <column name="number" value="1A"/>
+            <column name="cost" valueNumeric="45.00"/>
+            <column name="seat_type" value="WINDOW"/>
+            <column name="plane_id" value="a1000000-0000-0000-0000-000000000002"/>
+        </insert>
+        <insert tableName="seat" schemaName="flight">
+            <column name="id" value="b1000000-0000-0000-0000-000000000005"/>
+            <column name="number" value="1B"/>
+            <column name="cost" valueNumeric="25.00"/>
+            <column name="seat_type" value="MID"/>
+            <column name="plane_id" value="a1000000-0000-0000-0000-000000000002"/>
+        </insert>
+        <insert tableName="seat" schemaName="flight">
+            <column name="id" value="b1000000-0000-0000-0000-000000000006"/>
+            <column name="number" value="1A"/>
+            <column name="cost" valueNumeric="80.00"/>
+            <column name="seat_type" value="WINDOW"/>
+            <column name="plane_id" value="a1000000-0000-0000-0000-000000000003"/>
+        </insert>
+        <insert tableName="seat" schemaName="flight">
+            <column name="id" value="b1000000-0000-0000-0000-000000000007"/>
+            <column name="number" value="1B"/>
+            <column name="cost" valueNumeric="60.00"/>
+            <column name="seat_type" value="MID"/>
+            <column name="plane_id" value="a1000000-0000-0000-0000-000000000003"/>
+        </insert>
+        <insert tableName="seat" schemaName="flight">
+            <column name="id" value="b1000000-0000-0000-0000-000000000008"/>
+            <column name="number" value="1C"/>
+            <column name="cost" valueNumeric="70.00"/>
+            <column name="seat_type" value="AISLE"/>
+            <column name="plane_id" value="a1000000-0000-0000-0000-000000000003"/>
+        </insert>
+        <insert tableName="seat" schemaName="flight">
+            <column name="id" value="b1000000-0000-0000-0000-000000000009"/>
+            <column name="number" value="2A"/>
+            <column name="cost" valueNumeric="50.00"/>
+            <column name="seat_type" value="WINDOW"/>
+            <column name="plane_id" value="a1000000-0000-0000-0000-000000000001"/>
+        </insert>
+        <insert tableName="seat" schemaName="flight">
+            <column name="id" value="b1000000-0000-0000-0000-000000000010"/>
+            <column name="number" value="2B"/>
+            <column name="cost" valueNumeric="30.00"/>
+            <column name="seat_type" value="MID"/>
+            <column name="plane_id" value="a1000000-0000-0000-0000-000000000001"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="005-flights" author="dev">
+        <sql>
+            INSERT INTO flight.flight (id, from_location, destination, plane_id, base_cost, depart_time, land_time) VALUES
+            ('c1000000-0000-0000-0000-000000000001', 'Budapest', 'London', 'a1000000-0000-0000-0000-000000000001', 120.00, '2026-05-01 08:00:00+02', '2026-05-01 10:30:00+01'),
+            ('c1000000-0000-0000-0000-000000000002', 'London', 'Budapest', 'a1000000-0000-0000-0000-000000000001', 115.00, '2026-05-05 14:00:00+01', '2026-05-05 17:30:00+02'),
+            ('c1000000-0000-0000-0000-000000000003', 'Budapest', 'Paris', 'a1000000-0000-0000-0000-000000000002', 100.00, '2026-05-02 09:00:00+02', '2026-05-02 11:00:00+02'),
+            ('c1000000-0000-0000-0000-000000000004', 'Paris', 'Budapest', 'a1000000-0000-0000-0000-000000000002', 95.00, '2026-05-06 12:00:00+02', '2026-05-06 14:00:00+02'),
+            ('c1000000-0000-0000-0000-000000000005', 'Budapest', 'Berlin', 'a1000000-0000-0000-0000-000000000003', 80.00, '2026-05-03 07:00:00+02', '2026-05-03 08:30:00+02'),
+            ('c1000000-0000-0000-0000-000000000006', 'Berlin', 'Budapest', 'a1000000-0000-0000-0000-000000000003', 75.00, '2026-05-07 16:00:00+02', '2026-05-07 17:30:00+02'),
+            ('c1000000-0000-0000-0000-000000000007', 'Budapest', 'Rome', 'a1000000-0000-0000-0000-000000000001', 130.00, '2026-05-04 06:00:00+02', '2026-05-04 08:30:00+02'),
+            ('c1000000-0000-0000-0000-000000000008', 'Rome', 'Budapest', 'a1000000-0000-0000-0000-000000000001', 125.00, '2026-05-08 18:00:00+02', '2026-05-08 20:30:00+02'),
+            ('c1000000-0000-0000-0000-000000000009', 'Budapest', 'Amsterdam', 'a1000000-0000-0000-0000-000000000002', 110.00, '2026-05-09 10:00:00+02', '2026-05-09 12:30:00+02'),
+            ('c1000000-0000-0000-0000-000000000010', 'Amsterdam', 'Budapest', 'a1000000-0000-0000-0000-000000000002', 105.00, '2026-05-10 15:00:00+02', '2026-05-10 17:30:00+02');
+        </sql>
+    </changeSet>
+
+</databaseChangeLog>
